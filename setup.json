@@ -1,9 +1,14 @@
 [
 	{
 		"id": 141,
-		"use_standard_fields": false,
-		"module_name": {
-			"value": "Clim Cash Orders"
-		}
+		"use_standard_fields": false,	
+		"type": "module",
+		"name": "Clim Cash Orders",
+		"slug": "custom-orders",
+		"detail": false,
+		"sz": false,
+		"sz_updated": true,
+		"sz_display_type": "404",
+		"system_fields": false
 	}
 ]
