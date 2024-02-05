@@ -1,0 +1,17 @@
+query order_expanded($order_id: ID!) {
+  records(
+    per_page: 10
+    filter: {
+      id: {
+        value: $order_id
+      },
+      table: {value: "module_14/order"}
+    }
+    sort: {created_at: {order: DESC}}
+  ) {
+    results {
+      id
+      properties
+    }
+  }
+}

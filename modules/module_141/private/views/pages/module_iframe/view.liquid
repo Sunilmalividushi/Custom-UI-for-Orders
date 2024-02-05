@@ -1,0 +1,113 @@
+---
+slug: module_141/module_iframe/view/:id
+response_headers: >
+  {
+    "X-Frame-Options": null
+  }
+authorization_policies:
+  - modules/siteglide_system/module_is_in_admin
+layout: modules/module_141/templates/1
+---
+{% graphql data = "modules/module_141/properties/get_order" order_id: context.params.id -%}
+
+<section class="sg-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <p>Order ID : {{ data[0].id }}</p>
+        <p>Email : {{ data[0].properties['module_field_14/order_2']}}</p>
+         <p>Status : {{ data[0].properties['module_field_14/order_3']}}</p>
+        <table class="table table-bordered">
+          	<thead>
+				<th scope="col" class="sg-bg-primary text-white">Référence</th>
+				<th scope="col" class="sg-bg-primary text-white">Photo</th>
+				<th scope="col" class="sg-bg-primary text-white">Désignation </th>
+				<th scope="col" class="sg-bg-primary text-white">Quantité </th>				
+				<th scope="col" class="sg-bg-primary text-white">TVA Prod inclus</th>			
+				<th scope="col" class="sg-bg-primary text-white">TVA Eco inclus </th>				
+				<th scope="col" class="sg-bg-primary text-white">Total TTC</th>
+			</thead>
+			<tbody>
+				{% assign newData = data[0].properties['module_field_custom_14/order_8'] | parse_json %}
+			
+				{% for item in newData -%}
+			
+					<tr>
+						{% comment %} Produits {% endcomment %}
+						<td>
+							{% comment %} Référence {% endcomment %}
+							{{ item['Référence'] }}
+						</td>
+						
+						<td>
+							{% comment %} Désignation {% endcomment %}
+							{% comment %} {{ item.product_name }}<br><br> {% endcomment %}
+							<img width="100" src="{{item['Photo']}}" />
+						</td>
+						<td>
+							{% comment %} Désignation {% endcomment %}
+							{% comment %} {{ item.product_name }}<br><br> {% endcomment %}
+							{{item['Désignation']}}
+						</td>
+						<td>
+							{% comment %} Quantity {% endcomment %}
+							{{ item['Quantité']}}
+						</td>
+						
+						<td>
+							{% comment %} TVA Prod {% endcomment %}
+							{{item['TVA Prod']}}
+							
+						</td>
+						
+						<td>
+							{% comment %} Eco TVA {% endcomment %}
+							{{item['Eco TVA']}}
+						</td>
+						
+						<td>
+							{% comment %} Total TTC {% endcomment %}
+							{{item['Total TTC']}}
+						</td>
+					</tr>
+				{% endfor -%}
+				
+			</tbody>
+        </table>
+        <table class="order-details_table bottom w-100 mb-4 mt-5">
+	<tr>
+		<th>HT Produit</th>
+		<td>
+			{{data[0].properties['module_field_custom_14/order_1']}}
+		</td>
+		<td rowspan="2">
+			{{data[0].properties['module_field_custom_14/order_5']}}
+		</td>
+	</tr>
+	<tr>
+		<th>HT Eco Taxe</th>
+		<td>
+		{{data[0].properties['module_field_custom_14/order_2']}}
+		</td>
+	</tr>
+	<tr>
+		<th>TVA Produit</th>
+		<td>{{data[0].properties['module_field_custom_14/order_3']}}</td>
+		<td rowspan="2">{{data[0].properties['module_field_custom_14/order_6']}}</td>
+	</tr>
+	<tr>
+		<th>TVA Eco</th>
+		<td>{{data[0].properties['module_field_custom_14/order_4']}}</td>
+		
+	</tr>
+	<tr>
+		<th>Prix total</th>
+		<td></td>
+		<td>{{data[0].properties['module_field_custom_14/order_7']}}</td>
+	</tr>
+</table>
+
+      </div>
+    </div>
+  </div>
+</section>

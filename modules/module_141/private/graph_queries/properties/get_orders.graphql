@@ -3,7 +3,7 @@ query get_data {
 		per_page:20
 		filter:{
 			table:{
-				value:"modules/module_137/properties"
+				value:"module_14/order"
 			}
 		}
 		sort:[{
@@ -23,10 +23,6 @@ query get_data {
 			created_at
 			updated_at
 			properties
-			image: property_upload(name:"image") {
-				url
-				versions
-			}
 		}
 	}
 }
