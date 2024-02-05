@@ -1,0 +1,28 @@
+query get_data {
+	data: records(
+		per_page:20
+		filter:{
+			table:{
+				value:"module_14/order"
+			}
+		}
+		sort:[{
+			id:{
+				order:DESC
+			}
+		}]
+	) {
+		current_page
+		per_page
+		total_entries
+		total_pages
+		has_next_page
+		has_previous_page
+		results {
+			id
+			created_at
+			updated_at
+			properties
+		}
+	}
+}
