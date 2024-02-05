@@ -9,6 +9,13 @@
 		"sz": false,
 		"sz_updated": true,
 		"sz_display_type": "404",
-		"system_fields": false
+		"system_fields": {
+			"module_field_138_1": {
+				"name": "Title",
+				"type": "input_text",
+				"live": true,
+				"required": false
+			}
+		}
 	}
 ]
