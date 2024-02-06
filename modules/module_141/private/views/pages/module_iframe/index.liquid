@@ -40,7 +40,7 @@ layout: modules/module_141/templates/1
 							{{item.created_at | localize: 'with_time_zone' }}
 						</td>
 						<td>
-        					<a href="/crm/users/{{ item.properties['module_field_14/order_1'] }}">{{userInfo.users.results[0].first_name}}</a>
+        					<a href="https://admin.siteglide.com/#/site/1319368/crm/users/{{ item.properties['module_field_14/order_1'] }}?{% include "modules/siteglide_system/modules/auth" -%}">{{userInfo.users.results[0].first_name}}</a>
         				</td>
 						<td>
 							{{ item.properties['module_field_14/order_2']}}
