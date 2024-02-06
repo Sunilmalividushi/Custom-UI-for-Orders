@@ -14,7 +14,9 @@ layout: modules/module_141/templates/1
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <h1>All Orders</h1>
+        <p>Order ID : {{ orderDetails.records.results[0].id }}</p>
+        <p>Email : {{ orderDetails.records.results[0].properties['module_field_14/order_2']}}</p>
+         <p>Status : {{ orderDetails.records.results[0].properties['module_field_14/order_3']}}</p>
         <table class="table table-bordered">
           	<thead>
 				<th scope="col" class="sg-bg-primary">Référence</th>
