@@ -10,6 +10,7 @@ layout: modules/module_141/templates/1
 ---
 {% graphql data = "modules/module_141/properties/get_order" order_id: context.params.id -%}
 {% graphql userInfo = "modules/module_141/user/getUserInfo", user_id: context.params.id %}
+{{userInfo}}
 <section class="sg-content">
   <div class="container">
     <div class="row">
