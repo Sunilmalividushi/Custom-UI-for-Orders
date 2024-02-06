@@ -9,7 +9,7 @@ authorization_policies:
 layout: modules/module_141/templates/1
 ---
 {% graphql data = "modules/module_141/properties/get_order" order_id: context.params.id -%}
-
+{% graphql userInfo = "modules/module_141/user/getUserInfo", user_id: context.params.id %}
 <section class="sg-content">
   <div class="container">
     <div class="row">
@@ -18,6 +18,7 @@ layout: modules/module_141/templates/1
 		</div>
       <div class="col-12">
         <p>Order ID : {{ data.records.results[0].id }}</p>
+		<p>Username : {{userInfo.users.results[0].first_name}}</p>
         <p>Email : {{ data.records.results[0].properties['module_field_14/order_2']}}</p>
          <p>Status : {{ data.records.results[0].properties['module_field_14/order_3']}}</p>
         <table class="table table-bordered">

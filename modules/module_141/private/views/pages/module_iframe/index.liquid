@@ -22,6 +22,7 @@ layout: modules/module_141/templates/1
             <thead>
 				<th scope="col" class="sg-bg-primary">Order ID</th>
 				<th scope="col" class="sg-bg-primary">Order Date</th>
+				<th scope="col" class="sg-bg-primary">Username</th>
 				<th scope="col" class="sg-bg-primary">Email</th>			
 				<th scope="col" class="sg-bg-primary">Status</th>
 				<th scope="col" class="sg-bg-primary">Prix total</th>
@@ -30,7 +31,7 @@ layout: modules/module_141/templates/1
 			<tbody>
 	
 				{% for item in allorders.data.results -%}
-		
+					{% graphql userInfo = "modules/module_141/user/getUserInfo", user_id: item.properties['module_field_14/order_1'] %}
 					<tr>
 						<td>
 							{{ item.id }}
@@ -38,6 +39,9 @@ layout: modules/module_141/templates/1
 						<td>
 							{{item.created_at | localize: 'with_time_zone' }}
 						</td>
+						<td>
+        					{{userInfo.users.results[0].first_name}}
+        				</td>
 						<td>
 							{{ item.properties['module_field_14/order_2']}}
 						</td>

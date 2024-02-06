@@ -1,0 +1,8 @@
+query getUserInfo($user_id: ID!) {
+  users(per_page: 5, filter: {id: {value: $user_id}}) {
+    results {
+      email
+      first_name
+    }
+  }
+}
