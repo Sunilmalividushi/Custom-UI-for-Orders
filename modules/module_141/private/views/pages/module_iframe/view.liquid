@@ -17,13 +17,13 @@ layout: modules/module_141/templates/1
         <h1>All Orders</h1>
         <table class="table table-bordered">
           	<thead>
-				<th scope="col" class="sg-bg-primary text-dark">Référence</th>
-				<th scope="col" class="sg-bg-primary text-dark">Photo</th>
-				<th scope="col" class="sg-bg-primary text-dark">Désignation </th>
-				<th scope="col" class="sg-bg-primary text-dark">Quantité </th>				
-				<th scope="col" class="sg-bg-primary text-dark">TVA Prod inclus</th>			
-				<th scope="col" class="sg-bg-primary text-dark">TVA Eco inclus </th>				
-				<th scope="col" class="sg-bg-primary text-dark">Total TTC</th>
+				<th scope="col" class="sg-bg-primary">Référence</th>
+				<th scope="col" class="sg-bg-primary">Photo</th>
+				<th scope="col" class="sg-bg-primary">Désignation </th>
+				<th scope="col" class="sg-bg-primary">Quantité </th>				
+				<th scope="col" class="sg-bg-primary">TVA Prod inclus</th>			
+				<th scope="col" class="sg-bg-primary">TVA Eco inclus </th>				
+				<th scope="col" class="sg-bg-primary">Total TTC</th>
 			</thead>
 			<tbody>
 				{% assign newData = data[0].properties['module_field_custom_14/order_8'] | parse_json %}
