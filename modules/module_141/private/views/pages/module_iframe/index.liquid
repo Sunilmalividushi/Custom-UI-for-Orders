@@ -9,47 +9,48 @@ authorization_policies:
 layout: modules/module_141/templates/1
 ---
 
-{% graphql data = "modules/module_141/properties/get_orders" %}
 
-{% assign  data = data.data.results[0] %}
-
-<h1>All Orders</h1>
+{% graphql allorders = "modules/module_141/properties/get_orders" %}
 
 <section class="sg-content">
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <p>Order ID : {{ data[0].id }}</p>
-        <p>Email : {{ data[0].properties['module_field_14/order_2']}}</p>
-         <p>Status : {{ data[0].properties['module_field_14/order_3']}}</p>
         <table class="table table-bordered">
-          	<thead>
+            <thead>
 				<th scope="col" class="sg-bg-primary text-white">Order ID</th>
+				<th scope="col" class="sg-bg-primary text-white">Order Date</th>
 				<th scope="col" class="sg-bg-primary text-white">Email</th>			
 				<th scope="col" class="sg-bg-primary text-white">Status</th>
-			</thead>
+				<th scope="col" class="sg-bg-primary text-white">Prix total</th>
+        	</thead>
 			<tbody>
-				{% assign newData = data[0].properties['module_field_custom_14/order_8'] | parse_json %}
-			
-				{% for item in newData -%}
-			
+	
+				{% for item in allorders.data.results -%}
+		
 					<tr>
 						<td>
-							{{ data[0].id }}
+							{{ item.id }}
 						</td>
 						<td>
-							{{ data[0].properties['module_field_14/order_2']}}
+							{{item.created_at | localize: 'with_time_zone' }}
 						</td>
 						<td>
-							{{ data[0].properties['module_field_14/order_3']}}
+							{{ item.properties['module_field_14/order_2']}}
 						</td>
+						<td>
+							{{ item.properties['module_field_14/order_3']}}
+						</td>
+						<td>
+							{{ item.properties['module_field_custom_14/order_7']}}
+						</td>
+						
 					</tr>
 				{% endfor %}
-
+	
 			</tbody>
         </table>
-       
-      </div>
+     </div>
     </div>
   </div>
-</section>
+</section>   
