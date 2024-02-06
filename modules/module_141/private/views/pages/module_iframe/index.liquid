@@ -11,7 +11,7 @@ layout: modules/module_141/templates/1
 
 {% graphql data = "modules/module_141/properties/get_orders" %}
 
-{% assign  data = data.records.results[0] %}
+{% comment %} {% assign  data = data.records.results[0] %} {% endcomment %}
 
 {{data}}
 <h1>All Orders</h1>
