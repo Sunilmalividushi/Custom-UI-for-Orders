@@ -25,6 +25,7 @@ layout: modules/module_141/templates/1
 				<th scope="col" class="sg-bg-primary">Email</th>			
 				<th scope="col" class="sg-bg-primary">Status</th>
 				<th scope="col" class="sg-bg-primary">Prix total</th>
+				<th scope="col" class="sg-bg-primary">View</th>
         	</thead>
 			<tbody>
 	
@@ -45,6 +46,9 @@ layout: modules/module_141/templates/1
 						</td>
 						<td>
 							{{ item.properties['module_field_custom_14/order_7']}}
+						</td>
+						<td>
+							<a class="btn btn-primary" href="/module_141/module_iframe/view/{{item.id}}?{% include "modules/siteglide_system/modules/auth" -%}">View</a>
 						</td>
 						
 					</tr>
