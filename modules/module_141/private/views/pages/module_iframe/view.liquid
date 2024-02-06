@@ -9,7 +9,7 @@ authorization_policies:
 layout: modules/module_141/templates/1
 ---
 {% graphql data = "modules/module_141/properties/get_order" order_id: context.params.id -%}
-
+{{data}}
 <section class="sg-content">
   <div class="container">
     <div class="row">
