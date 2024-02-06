@@ -28,7 +28,7 @@ layout: modules/module_141/templates/1
 				<th scope="col" class="sg-bg-primary">Total TTC</th>
 			</thead>
 			<tbody>
-				{% assign newData = data[0].properties['module_field_custom_14/order_8'] | parse_json %}
+				{% assign newData = data.records.results[0].properties['module_field_custom_14/order_8'] | parse_json %}
 			
 				{% for item in newData -%}
 			
