@@ -11,11 +11,18 @@ layout: modules/module_141/templates/1
 {% graphql data = "modules/module_141/properties/get_order" order_id: context.params.id -%}
 {% graphql userInfo = "modules/module_141/user/getUserInfo", user_id: data.records.results[0].properties['module_field_14/order_1'] %}
 
+<style>
+	@media print {
+	.ignore-print {
+		display: none !important;
+	}
+}
+</style>
 <section class="sg-content">
   <div class="container">
     <div class="row">
-		<div class="col-12 mb-5 d-flex justify-content-between">
-			<button onclick="printSection()">Print this page</button>
+		<div class="col-12 mb-5 d-flex justify-content-between ignore-print">
+			<button onclick="window.print()">Print this page</button>
 			<a class="btn btn-primary" href="/module_141/module_iframe/index?{% include 'modules/siteglide_system/modules/auth' -%}">Back to all Orders</a>
 		</div>
 
@@ -24,7 +31,7 @@ layout: modules/module_141/templates/1
 		<p>Username : {{userInfo.users.results[0].first_name}}</p>
         <p>Email : {{ data.records.results[0].properties['module_field_14/order_2']}}</p>
          <p>Status : {{ data.records.results[0].properties['module_field_14/order_3']}}</p>
-        <table class="table table-bordered" id="printable-section">
+        <table class="table table-bordered">
           	<thead>
 				<th scope="col" class="sg-bg-primary">Référence</th>
 				<th scope="col" class="sg-bg-primary">Photo</th>
@@ -120,7 +127,7 @@ layout: modules/module_141/templates/1
 </section>
 <script>
 function printSection() {
-  var printContents = document.getElementById("printable-section").innerHTML;
+  var printContents = document.getElementById("printableSection").innerHTML;
   var originalContents = document.body.innerHTML;
 
   document.body.innerHTML = printContents;
