@@ -128,7 +128,8 @@ layout: modules/module_141/templates/1
 <script>
 function printToPDF() {
   var printableContent = document.querySelector('.printable-section').innerHTML;
-
+  var printWindow = window.open('', '_self');
+  printWindow.document.open();
   printWindow.document.write(printableContent);
 
   // Optional: Set the filename
