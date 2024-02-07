@@ -22,7 +22,7 @@ layout: modules/module_141/templates/1
   <div class="container">
     <div class="row">
 		<div class="col-12 mb-5 d-flex justify-content-between ignore-print">
-			<button onclick="window.print()">Print this page</button>
+			<button onclick="printpdf()">Print this page</button>
 			<a class="btn btn-primary" href="/module_141/module_iframe/index?{% include 'modules/siteglide_system/modules/auth' -%}">Back to all Orders</a>
 		</div>
 
@@ -125,4 +125,26 @@ layout: modules/module_141/templates/1
     </div>
   </div>
 </section>
+<button onclick="printPage()">Print this page</button>
+
+<script>
+  function printPdf() {
+    // Prompt user for a custom filename
+    var customFileName = prompt("Invoice_Order_ID : {{ data.records.results[0].id }}", "page");
+
+    // If the user cancels the prompt or enters an empty string, return
+    if (!customFileName) return;
+
+    // Set the filename for the print operation
+    var originalTitle = document.title;
+    document.title = customFileName;
+
+    // Print the page
+    window.print();
+
+    // Restore the original title after printing
+    document.title = originalTitle;
+  }
+</script>
+
 
