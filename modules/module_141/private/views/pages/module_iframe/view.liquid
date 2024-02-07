@@ -128,12 +128,9 @@ layout: modules/module_141/templates/1
 <script>
 function printToPDF() {
   var printableContent = document.querySelector('.printable-section').innerHTML;
-  var printWindow = window.open('', '_blank');
-  printWindow.document.open();
-  printWindow.document.write('<html><head><title>Custom Filename</title></head><body>');
+
   printWindow.document.write(printableContent);
-  printWindow.document.write('</body></html>');
-  printWindow.document.close();
+
   // Optional: Set the filename
   printWindow.document.querySelector('title').innerText = 'Invoice{{ data.records.results[0].id }}.pdf'; // Change 'Custom_Filename' to your desired file name
   // Trigger the print dialog
