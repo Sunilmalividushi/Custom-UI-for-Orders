@@ -10,57 +10,82 @@ layout: modules/module_141/templates/1
 ---
 
 
-{% graphql allorders = "modules/module_141/properties/get_orders" %}
-
 <section class="sg-content">
   <div class="container">
     <div class="row">
       <div class="col-12">
-		<h1 class="mb-5">All Orders</h1>
+        <form>
+          <div class="col-12 col-md-2">
+				<div class="row">
+					<div class="col-12 col-md-6">
+						<label for="page">Page</label>
+						<input id="page" onchange="getOrdersData()" class="form-control sg-form-control" type="number" step="1" value="1">
+					</div>
 
-        <table class="table table-bordered">
-            <thead>
-				<th scope="col" class="sg-bg-primary">Order ID</th>
-				<th scope="col" class="sg-bg-primary">Order Date</th>
-				<th scope="col" class="sg-bg-primary">Username</th>
-				<th scope="col" class="sg-bg-primary">Email</th>			
-				<th scope="col" class="sg-bg-primary">Status</th>
-				<th scope="col" class="sg-bg-primary">Prix total</th>
-				<th scope="col" class="sg-bg-primary">View</th>
-        	</thead>
-			<tbody>
-	
-				{% for item in allorders.data.results -%}
-					{% graphql userInfo = "modules/module_141/user/getUserInfo", user_id: item.properties['module_field_14/order_1'] %}
-					<tr>
-						<td>
-							<a href="/module_141/module_iframe/view/{{item.id}}?{% include "modules/siteglide_system/modules/auth" -%}">{{ item.id }}</a>
-						</td>
-						<td>
-							{{item.created_at | localize: 'with_time_zone' }}
-						</td>
-						<td>
-        					{{userInfo.users.results[0].first_name}}
-        				</td>
-						<td>
-							{{ item.properties['module_field_14/order_2']}}
-						</td>
-						<td>
-							{{ item.properties['module_field_14/order_3']}}
-						</td>
-						<td>
-							{{ item.properties['module_field_custom_14/order_7']}}
-						</td>
-						<td>
-							<a class="btn btn-primary" href="/module_141/module_iframe/view/{{item.id}}?{% include "modules/siteglide_system/modules/auth" -%}">View</a>
-						</td>
-						
-					</tr>
-				{% endfor %}
-	
-			</tbody>
-        </table>
-     </div>
+					<div class="col-12 col-md-6">
+						<label for="per_page">Par Page</label>
+					
+						<select id="per_page" class="form-control sg-form-control" name="per_page" onchange="getOrdersData()" style="width:120px">
+								<option value="10">10 / page </option>
+								<option value="20">20 / page </option>
+								<option value="30">30 / page </option>
+								<option value="40">40 / page </option>
+							</select>
+					</div>
+				</div>
+
+			</div>
+        </form>
+        <div class="orders-custom-table" id="orders-custom-table">
+          
+        </div>
+      </div>
     </div>
   </div>
-</section>   
+</section>
+
+<script>
+
+	var page = document.querySelector('#page');
+	var per_page = document.querySelector("#per_page");
+
+
+
+	function getOrdersData() {
+		const myDiv = document.getElementById("orders-custom-table");
+
+		if (myDiv.innerHTML.trim() === "") {
+			// myDiv.classList.add("empty");
+			var img = document.createElement('img');
+			img.src =
+				'https://uploads.prod01.london.platform-os.com/instances/827/assets/images/preview.gif?updated=1677848654532';
+			img.width = "150";
+			img.style = "margin:auto;display:block";
+			document.getElementById('orders-custom-table').appendChild(img);
+		}
+
+
+		event.preventDefault();
+		var xReq = new XMLHttpRequest();
+		xReq.onload = function() {
+			if (xReq.status >= 200 && xReq.status < 300) {
+				document.querySelector(".orders-custom-table").innerHTML = "";
+				document.querySelector(".orders-custom-table").insertAdjacentHTML('beforeend', xReq.responseText);
+
+			} else {
+				console.log(xReq.responseText);
+			}
+		};
+		xReq.open('GET', '/api/orders/allOrders?page=' + page.value + '&per_page=' + per_page.value);
+		xReq.send();
+
+	}
+	window.onload = getOrdersData;
+
+	function changePage(newPageInt) {
+		var pageState = document.querySelector('#page');
+		pageState.value = newPageInt;
+		getOrdersData();
+	}
+</script>
+
