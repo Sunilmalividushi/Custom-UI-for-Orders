@@ -1,6 +1,7 @@
-query get_data {
+query get_data($page: Int,$per_page: Int) {
 	data: records(
-		per_page:20
+		per_page:$per_page
+		page:$page
 		filter:{
 			table:{
 				value:"module_14/order"
@@ -23,6 +24,15 @@ query get_data {
 			created_at
 			updated_at
 			properties
+			user_id
+			related_users(
+				foreign_property: "id"
+				join_on_property: "module_field_14/order_1"
+			) {
+				first_name
+				email
+				name
+			}
 		}
 	}
 }
