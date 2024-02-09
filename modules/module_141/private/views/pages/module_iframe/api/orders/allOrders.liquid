@@ -19,7 +19,7 @@ layout: ''
 {% assign has_previous_page =  allorders.data.has_previous_page %}
 {% assign has_next_page =  allorders.data.has_next_page %}
  
-{% render 'layouts/pagination/products_pagination', total_middle_buttons: 7, current_page: current_page, total_pages: total_pages, has_previous_page: has_previous_page, has_next_page: has_next_page %}
+{% render 'layouts/pagination/orders_pagination', total_middle_buttons: 7, current_page: current_page, total_pages: total_pages, has_previous_page: has_previous_page, has_next_page: has_next_page %}
 
 <table class="table table-bordered" id="order-table">
     <thead>
@@ -60,4 +60,4 @@ layout: ''
     </tbody>
 </table>
     
-{% render 'layouts/pagination/products_pagination', total_middle_buttons: 7, current_page: current_page, total_pages: total_pages, has_previous_page: has_previous_page, has_next_page: has_next_page %}
+{% render 'layouts/pagination/orders_pagination', total_middle_buttons: 7, current_page: current_page, total_pages: total_pages, has_previous_page: has_previous_page, has_next_page: has_next_page %}
