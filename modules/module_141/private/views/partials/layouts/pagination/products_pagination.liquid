@@ -18,7 +18,7 @@
   
   <div class="cstm-page-div">
   {% if total_pages != 1 -%}
-    <ul class="pagination pagination-02 justify-content-center">
+    <ul class="pagination pagination-02 justify-content-end">
       <li class="page-item {% if has_previous_page == false %}disabled{% endif %}">
         <button type="button" onClick="changePage({{current_page | minus: 1}});" class="page-link"><i class="fas fa-chevron-left"></i><span class="sr-only">Previous page</span></button>
       </li>
