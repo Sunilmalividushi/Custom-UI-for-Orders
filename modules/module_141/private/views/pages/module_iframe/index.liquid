@@ -79,7 +79,7 @@ layout: modules/module_141/templates/1
 				console.log(xReq.responseText);
 			}
 		};
-		xReq.open('GET', 'api/orders/allOrders.liquid?page=' + page.value + '&per_page=' + per_page.value);
+		xReq.open('GET', 'api/orders/allOrders?page=' + page.value + '&per_page=' + per_page.value);
 		xReq.send();
 
 	}
@@ -91,4 +91,3 @@ layout: modules/module_141/templates/1
 		getOrdersData();
 	}
 </script>
-<link href="api/orders/allOrders.liquid">
