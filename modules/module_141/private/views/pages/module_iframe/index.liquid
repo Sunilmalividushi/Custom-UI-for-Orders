@@ -13,34 +13,37 @@ layout: modules/module_141/templates/1
 <section class="sg-content">
   <div class="container">
     <div class="row">
-      <div class="col-12">
-        <form>
-          <div class="col-12 col-md-2">
-				<div class="row">
-					<div class="col-12 col-md-6">
-						<label for="page">Page</label>
-						<input id="page" onchange="getOrdersData()" class="form-control sg-form-control" type="number" step="1" value="1">
-					</div>
+       
+          <div class="col-12 col-md-3">
+				<form>
+					<div class="row">
+						<div class="col-12 col-md-6">
+							<label for="page">Page</label>
+							<input id="page" onchange="getOrdersData()" class="form-control sg-form-control" type="number" step="1" value="1">
+						</div>
 
-					<div class="col-12 col-md-6">
-						<label for="per_page">Par Page</label>
-					
-						<select id="per_page" class="form-control sg-form-control" name="per_page" onchange="getOrdersData()" style="width:120px">
-								<option value="10">10 / page </option>
-								<option value="20">20 / page </option>
-								<option value="30">30 / page </option>
-								<option value="40">40 / page </option>
-							</select>
+						<div class="col-12 col-md-6">
+							<label for="per_page">Par Page</label>
+						
+							<select id="per_page" class="form-control sg-form-control" name="per_page" onchange="getOrdersData()" style="width:120px">
+									<option value="10">10 / page </option>
+									<option value="20">20 / page </option>
+									<option value="30">30 / page </option>
+									<option value="40">40 / page </option>
+								</select>
+						</div>
 					</div>
-				</div>
-
+				</form>
+		</div>
+		<div class="col-12 col-md-9" id="new-pagination">
+			
+		</div>	
+		<div class="col-12">
+			<div class="orders-custom-table" id="orders-custom-table">
+			
 			</div>
-        </form>
-        <div class="orders-custom-table" id="orders-custom-table">
-          
-        </div>
+		</div>		
       </div>
-    </div>
   </div>
 </section>
 
