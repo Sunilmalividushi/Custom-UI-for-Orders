@@ -22,46 +22,42 @@ layout: ''
 {% render 'layouts/pagination/products_pagination', total_middle_buttons: 7, current_page: current_page, total_pages: total_pages, has_previous_page: has_previous_page, has_next_page: has_next_page %}
 
 <table class="table table-bordered" id="order-table">
-        <thead>
-                <th scope="col" class="sg-bg-primary text-white">Order ID</th>
-                <th scope="col" class="sg-bg-primary text-white">Order Date</th>
-                <th scope="col" class="sg-bg-primary text-white">Username</th>
-                <th scope="col" class="sg-bg-primary text-white">Email</th>			
-                <th scope="col" class="sg-bg-primary text-white">Status</th>
-                <th scope="col" class="sg-bg-primary text-white">Prix total</th>
-                <th scope="col" class="sg-bg-primary">View</th>
-            </thead>
-            <tbody>
-
-                {% for item in allorders.data.results -%}
-                   
-                    <tr>
-                        <td>
-                            {{ item.id }}
-                        </td>
-                        <td>
-                            {{item.created_at | date: "%Y-%m-%d %H:%M" }}
-                        </td>
-                        <td>
-                            {{item.related_users[0].name}}
-                        </td>
-                        <td>
-                            {{ item.properties['module_field_14/order_2']}}
-                        </td>
-                        <td>
-                            {{ item.properties['module_field_14/order_3']}}
-                        </td>
-                        <td>
-                            {{ item.properties['module_field_custom_14/order_7']}}
-                        </td>
-                        <td>
-							<a class="btn btn-primary" href="/module_141/module_iframe/view/{{item.id}}?{% include "modules/siteglide_system/modules/auth" -%}">View</a>
-						</td>
-                        
-                    </tr>
-                {% endfor %}
-
-        </tbody>
+    <thead>
+        <th scope="col" class="sg-bg-primary text-white">Order ID</th>
+        <th scope="col" class="sg-bg-primary text-white">Order Date</th>
+        <th scope="col" class="sg-bg-primary text-white">Username</th>
+        <th scope="col" class="sg-bg-primary text-white">Email</th>			
+        <th scope="col" class="sg-bg-primary text-white">Status</th>
+        <th scope="col" class="sg-bg-primary text-white">Prix total</th>
+        <th scope="col" class="sg-bg-primary">View</th>
+    </thead>
+    <tbody>
+        {% for item in allorders.data.results -%}           
+            <tr>
+                <td>
+                    {{ item.id }}
+                </td>
+                <td>
+                    {{item.created_at | date: "%Y-%m-%d %H:%M" }}
+                </td>
+                <td>
+                    {{item.related_users[0].name}}
+                </td>
+                <td>
+                    {{ item.properties['module_field_14/order_2']}}
+                </td>
+                <td>
+                    {{ item.properties['module_field_14/order_3']}}
+                </td>
+                <td>
+                    {{ item.properties['module_field_custom_14/order_7']}}
+                </td>
+                <td>
+                    <a class="btn btn-primary" href="/module_141/module_iframe/view/{{item.id}}">View</a>
+                </td>               
+            </tr>
+        {% endfor %}
+    </tbody>
 </table>
     
 {% render 'layouts/pagination/products_pagination', total_middle_buttons: 7, current_page: current_page, total_pages: total_pages, has_previous_page: has_previous_page, has_next_page: has_next_page %}
