@@ -34,7 +34,7 @@ slug: module_141/module_iframe/api/getOrders
     <tbody>
         {% for item in allorders.data.results -%}           
             <tr>
-                <td>
+                <td class="text-center">
                     <a href="/module_141/module_iframe/view/{{item.id}}?{% include "modules/siteglide_system/modules/auth" -%}">{{ item.id }}</a>
                 </td>
                 <td>
