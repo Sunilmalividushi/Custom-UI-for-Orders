@@ -5,11 +5,13 @@ slug: module_141/module_iframe/api/getOrders
 
 {%- assign page = context.params.page | default: 1 | plus: 0 -%}
 {%- assign per_page = context.params.per_page | default: 10 | plus: 0 -%}
+{%- assign keyword = context.params.keyword | default: "" -%}
 
 
 {%- graphql allorders = "modules/module_141/module_orders/get_orders",
   page: page,
-  per_page: per_page
+  per_page: per_page,
+  keyword: keyword
 -%}
 
 
