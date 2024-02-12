@@ -12,6 +12,15 @@ query order_expanded($order_id: ID!) {
     results {
       id
       properties
+      user_id
+      related_users(
+				foreign_property: "id"
+				join_on_property: "module_field_14/order_1"
+			) {
+				first_name
+				email
+				name
+			}
     }
   }
 }
