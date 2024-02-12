@@ -35,7 +35,7 @@ slug: module_141/module_iframe/api/getOrders
         {% for item in allorders.data.results -%}           
             <tr>
                 <td>
-                    {{ item.id }}
+                    <a href="/module_141/module_iframe/view/{{item.id}}?{% include "modules/siteglide_system/modules/auth" -%}">{{ item.id }}</a>
                 </td>
                 <td>
                     {{item.created_at | date: "%Y-%m-%d %H:%M" }}
