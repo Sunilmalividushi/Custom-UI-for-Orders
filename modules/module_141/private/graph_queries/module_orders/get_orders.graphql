@@ -2,7 +2,7 @@ query get_data($page: Int,$per_page: Int,$keyword: String = "") {
 	data: records(
 		per_page:$per_page
 		page:$page
-		filter: {table: {value: "module_14/order"}, id: {value: $keyword}, properties: {name: "module_field_14/order_2", contains: $keyword}}
+		filter: {table: {value: "module_14/order"}, properties: {name: "module_field_14/order_2", contains: $keyword}}
 		sort:[{
 			id:{
 				order:DESC
