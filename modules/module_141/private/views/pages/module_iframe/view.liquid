@@ -27,10 +27,52 @@ layout: modules/module_141/templates/1
 		</div>
 
       <div class="col-12">
-        <p>Order ID : {{ data.records.results[0].id }}</p>
-		<p>Username : {{userInfo.users.results[0].first_name}}</p>
-        <p>Email : {{ data.records.results[0].properties['module_field_14/order_2']}}</p>
-         <p>Status : {{ data.records.results[0].properties['module_field_14/order_3']}}</p>
+        <h3 class="my-4">Order details</h3>
+        <table class="table table-bordered">
+          <tbody>
+            <tr>
+              <td>
+                <b>Order ID :</b>
+              </td>
+              <td>
+                {{ data.records.results[0].id }}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Date :</b>
+              </td>
+              <td>
+                {{ data.records.results[0].properties['release_date'] | date: "%Y-%m-%d %H:%M" }}
+              </td>
+            </tr>
+             <tr>
+              <td>
+                <b>Name :</b>
+              </td>
+              <td>
+                {{ data.records.results[0].related_users[0].name }}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Email :</b>
+              </td>
+              <td>
+                {{ data.records.results[0].properties['module_field_14/order_2']}}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Status :</b>
+              </td>
+              <td>
+                {{ data.records.results[0].properties['module_field_14/order_3']}}
+              </td>
+            </tr>
+          </tbody>          	
+        </table>
+        <h3 class="my-4">Invoice Table</h3>
         <table class="table table-bordered">
           	<thead>
 				<th scope="col" class="sg-bg-primary text-white">Référence</th>
