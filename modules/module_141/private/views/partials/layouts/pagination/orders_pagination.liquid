@@ -26,7 +26,7 @@
         <li class="page-item {% if current_page == 1 -%}active{% endif -%}">
            <button type="button" onClick="changePage(1);" class="page-link">1</button>
         </li>
-         <li class="page-item" ><button type="button" onClick="changePage(" class="page-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/></svg></button></li>
+         <li class="page-item" ><button type="button" onClick="changePage(" class="page-link"><svg viewBox="64 64 896 896" focusable="false" class="" data-icon="double-right" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M533.2 492.3L277.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H188c-6.7 0-10.4 7.7-6.3 12.9L447.1 512 181.7 851.1A7.98 7.98 0 0 0 188 864h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5zm304 0L581.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H492c-6.7 0-10.4 7.7-6.3 12.9L751.1 512 485.7 851.1A7.98 7.98 0 0 0 492 864h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5z"></path></svg></button></li>
       {% endif -%}
       {% for page_button in (minimum_threshold..maximum_threshold) -%}
         {% capture _path -%}{{context.location.pathname}}?page={{page_button}}{{page_search_params}}{% endcapture -%}
@@ -35,7 +35,7 @@
         </li>
       {% endfor -%}
       {% if maximum_threshold < total_pages %}
-        <li class="page-item" ><button type="button" class="page-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z"/></svg></button></li>
+        <li class="page-item" ><button type="button" class="page-link">•••</button></li>
         <li class="page-item {% if current_page == total_pages -%}active{% endif -%}">
            <button type="button" onClick="changePage({{total_pages}});" class="page-link">{{total_pages}}</button>
         </li>
