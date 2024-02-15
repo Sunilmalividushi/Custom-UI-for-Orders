@@ -26,7 +26,7 @@
         <li class="page-item {% if current_page == 1 -%}active{% endif -%}">
            <button type="button" onClick="changePage(1);" class="page-link">1</button>
         </li>
-         
+         <li class="page-item" ><button type="button" onClick="changePage(" class="page-link">•••</button></li>
       {% endif -%}
       {% for page_button in (minimum_threshold..maximum_threshold) -%}
         {% capture _path -%}{{context.location.pathname}}?page={{page_button}}{{page_search_params}}{% endcapture -%}
