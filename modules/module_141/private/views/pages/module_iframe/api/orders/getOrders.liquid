@@ -55,7 +55,7 @@ slug: module_141/module_iframe/api/getOrders
                     {% if item.properties['module_field_custom_14/order_7'] != blank %}
                         {{ item.properties['module_field_custom_14/order_7']}}
                     {% else %}
-                        {{ item.properties['module_field_14/order_9'] | divided_by: 100.00 | format_number: precision: 2, separator: ",", delimiter: "." }}
+                        {{ item.properties['module_field_14/order_9'] | divided_by: 100.00 | format_number: precision: 2, separator: ".", delimiter: "," }}
                     {% endif %}
                 </td>
                 <td>
