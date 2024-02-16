@@ -52,7 +52,11 @@ slug: module_141/module_iframe/api/getOrders
                     {{ item.properties['module_field_14/order_3']}}
                 </td>
                 <td>
-                    {{ item.properties['module_field_custom_14/order_7']}}
+                    {% if item.properties['module_field_custom_14/order_7'] != blank %}
+                        {{ item.properties['module_field_custom_14/order_7']}}
+                    {% else %}
+                        {{ item.properties['module_field_14/order_9'] | divided_by: 100.00 | format_number: precision: 2, separator: ",", delimiter: "." }}
+                    {% endif %}
                 </td>
                 <td>
                     <a class="view" href="/module_141/module_iframe/view/{{item.id}}?{% include "modules/siteglide_system/modules/auth" -%}">
