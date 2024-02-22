@@ -10,7 +10,6 @@ layout: modules/module_141/templates/1
 ---
 {% graphql data = "modules/module_141/module_orders/get_order" order_id: context.params.id -%}
 {% graphql userInfo = "modules/module_141/user/getUserInfo", user_id: data.records.results[0].properties['module_field_14/order_1'] %}
-{% assign site_id =  context.params.site_id | default: "" %}
 
 <section class="sg-content">
   <div class="container">
@@ -21,7 +20,7 @@ layout: modules/module_141/templates/1
 		</div>
 
       <div class="col-12 bg-white py-4 px-3">
-        <h4 class="mb-4">Order details ( Site ID :  {{site_id}} )</h4>
+        <h4 class="mb-4">Order details</h4>
         <table class="table table-bordered">
           <tbody>
             <tr>
