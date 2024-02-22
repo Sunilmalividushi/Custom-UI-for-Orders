@@ -15,7 +15,7 @@ layout: modules/module_141/templates/1
     <div class="row">
        
           <div class="col-12 col-md-6 filter-form">
-			<p>Site ID : {{params.site_id}}</p>
+			<p id="site_id">Site ID : {{params.site_id}}</p>
 				<form>
 					<div class="row">
 						<div class="col-12 col-md-6">
@@ -29,6 +29,10 @@ layout: modules/module_141/templates/1
 						<div class="col-12 col-md-6 d-none">
 							<label for="page" class="mb-2">Page</label>
 							<input id="page" onchange="getOrdersData()" class="form-control sg-form-control" type="number" step="1" value="1">
+						</div>
+						<div class="col-12 col-md-6 d-none">
+							<label for="page" class="mb-2">Site ID </label>
+							<input id="site_id" type="text" value="{{params.site_id}}">
 						</div>
 
 						<div class="col-12 col-md-6">
@@ -88,7 +92,7 @@ layout: modules/module_141/templates/1
 				console.log(xReq.responseText);
 			}
 		};
-		xReq.open('GET', '/module_141/module_iframe/api/getOrders?page=' + page.value + '&per_page=' + per_page.value + '&keyword=' + keyword.value);
+		xReq.open('GET', '/module_141/module_iframe/api/getOrders?page=' + page.value + '&per_page=' + per_page.value + '&keyword=' + keyword.value + + '&site_id=' + site_id.value);
 		xReq.send();
 
 	}

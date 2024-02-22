@@ -6,6 +6,7 @@ slug: module_141/module_iframe/api/getOrders
 {%- assign page = context.params.page | default: 1 | plus: 0 -%}
 {%- assign per_page = context.params.per_page | default: 10 | plus: 0 -%}
 {%- assign keyword = context.params.keyword | default: "" -%}
+{% assign site_id =  context.params.site_id | default: "" %}
 
 
 {%- graphql allorders = "modules/module_141/module_orders/get_orders",
@@ -20,7 +21,7 @@ slug: module_141/module_iframe/api/getOrders
 {% assign total_entries =  allorders.data.total_entries %}
 {% assign has_previous_page =  allorders.data.has_previous_page %}
 {% assign has_next_page =  allorders.data.has_next_page %}
- 
+
 {% render 'modules/module_141/layouts/pagination/orders_pagination', total_middle_buttons: 7, current_page: current_page, total_pages: total_pages, has_previous_page: has_previous_page, has_next_page: has_next_page %}
 
 <table class="table table-bordered mt-4" id="order-table">
@@ -43,7 +44,7 @@ slug: module_141/module_iframe/api/getOrders
                     {{item.created_at | date: "%Y-%m-%d %H:%M" }}
                 </td>
                 <td>
-                    <a href="https://admin.siteglide.com/#/site/{{params.site_id}}/crm/users/{{item.user_id}}" target="_top">{{item.related_users[0].name}}</a>
+                    <a href="https://admin.siteglide.com/#/site/{{site_id}}/crm/users/{{item.user_id}}" target="_top">{{item.related_users[0].name}}</a>
                 </td>
                 <td>
                     {{ item.properties['module_field_14/order_2']}}
