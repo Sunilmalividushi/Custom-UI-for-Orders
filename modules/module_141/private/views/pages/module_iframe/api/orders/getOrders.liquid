@@ -43,7 +43,7 @@ slug: module_141/module_iframe/api/getOrders
                     {{item.created_at | date: "%Y-%m-%d %H:%M" }}
                 </td>
                 <td>
-                    {{item.related_users[0].name}}
+                    <a href="https://admin.siteglide.com/#/site/{{params.site_id}}/crm/users/{{item.user_id}}" target="_top">{{item.related_users[0].name}}</a>
                 </td>
                 <td>
                     {{ item.properties['module_field_14/order_2']}}
