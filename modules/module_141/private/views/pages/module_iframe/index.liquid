@@ -89,7 +89,7 @@ layout: modules/module_141/templates/1
 				console.log(xReq.responseText);
 			}
 		};
-		xReq.open('GET', '/module_141/module_iframe/api/getOrders?page=' + page.value + '&per_page=' + per_page.value + '&keyword=' + keyword.value + + '&site_id=' + {{params.site_id}});
+		xReq.open('GET', '/module_141/module_iframe/api/getOrders?page=' + page.value + '&per_page=' + per_page.value + '&keyword=' + keyword.value + '&site_id=' + {{params.site_id}});
 		xReq.send();
 
 	}
