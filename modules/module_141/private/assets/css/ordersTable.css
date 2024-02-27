@@ -1,11 +1,40 @@
+body{
+    background: #f5f5f5;
+}
 .container{
     max-width: 100% !important;
 }
 .sg-bg-primary{
     background-color: #1592da !important;
 }
+.form-control{
+    background: #f5f5f5;
+    border: 1px solid #0000;
+    border-radius: 3px;
+    box-shadow: inset 0 1px 2px #0000001a;
+    color: #828282;
+    font-family: Gilroy Medium,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+    font-size: 14px;
+    font-weight: 300;
+    height: 45px;
+    padding: 10px;
+}
+.search-block .icon{
+    right: 10px;
+    top: 9px;
+}
+.search-block svg{
+    width: 18px !important;
+}
 table{
     border: 1px solid #d4d4d4 !important;
+    background: #fff;
+}
+.orders-custom-table{
+    margin-top: -40px;
+}
+table#order-table a{
+    text-decoration:none;
 }
 td,th {
 height: 50px;
@@ -16,4 +45,21 @@ vertical-align: middle;
 }
 .page-link:focus {
     box-shadow:none !important;
-}	
+}
+.view svg, .page-item svg{
+    width: 20px;
+    height: 24px;
+    margin: auto;
+    display: block;
+}
+.d-none{
+    display: none;
+}
+.filter-form{
+    z-index: 9999;
+}
+@media print {
+    .ignore-print {
+        display: none !important;
+    }
+}		
